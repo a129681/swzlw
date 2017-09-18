@@ -1,0 +1,45 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>管理员登录页面</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link href="css/login.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript">
+		function checkForm() {
+			if(!$("#adminname").val()) {
+				alert("管理员名称不能为空！");
+				return false;
+			}
+			if(!$("#adminpwd").val()) {
+				alert("管理员密码不能为空！");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
+  </head>
+  
+<body>
+<div style="width:100%;height:1200px;z-index:-10;position:absolute;top:0px;">
+	<img src="<c:url value='/jsps/image/admin_bg.jpg'/>" alt='bg' style="width:100%;height:100%;"/>
+</div>
+<div class="login_bg">
+<h2>管理员登录页面</h2>
+<p style="font-weight: 900; color: red;height:20px;width:200px;margin:0 auto;">${msg }</p>
+<form action="<c:url value='/AdminServlet'/>" method="post" onsubmit="return checkForm()" target="_top">
+	<input type="hidden" name="method" value="login"/>
+	<div class="log">
+		<span class="adminTxt">管理员账户：<input type="text" name="adminname" value="" id="adminname"/></span>
+		<span class="adminpwd">密码：<input  type="password" name="adminpwd" id="adminpwd"/></span>
+		<span class="asubmit"><input  type="submit" value="进入后台"/><a href="<c:url value='/GoodsServlet?method=findAllByTime'/>" style="padding-left:10px;">返回首页</a></span>
+	</div>
+</form>
+</div>
+  </body>
+</html>

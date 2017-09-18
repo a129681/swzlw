@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>top</title>
+    <base target="body">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	
+<style type="text/css">
+	body {font-size: 10pt;padding:0;margin:0;}
+	a {color: #aaa;}
+	.htgl{width:160px;height:20px;margin:20px auto;}
+</style>
+  </head>
+  
+  <body style="background: rgb(78,78,78);color: #fff;">
+<h1 style="width:480px;height:30px;margin:0 auto; line-height: 30px;">欢迎来到失物招领网后台管理平台</h1>
+<div style="line-height: 10px;" class="htgl">
+	<span>管理员：${sessionScope.admin.adminname }</span>
+	<a target="_top" href="<c:url value='/AdminServlet?method=quit'/>">退出</a>
+</div>
+  </body>
+</html>

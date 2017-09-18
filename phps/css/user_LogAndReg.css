@@ -1,0 +1,23 @@
+body{
+    background:url("../image/login_img/body_bg1.jpg") no-repeat;
+    background-size:cover;
+}
+
+.registBox{
+
+}
+.registBox .loginCenter input{
+    background:url("../image/landing/text_outline.png") no-repeat;
+    width:281px;height:40px;
+}
+
+.registBox .loginCenter .normal{
+    display: block;
+}
+
+.registBox .loginCenter span{
+    text-align: right;
+    display: inline-block;width:80px;height:40px;
+    margin-right:4px;
+}
+

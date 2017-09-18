@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<title>My JSP 'body.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<style type="text/css">
+.mainbody {
+	background: url(/swzlw/jsps/image/abus.jpg) repeat-x;
+}
+.mainbody table tr td {
+	text-align:center;
+}
+</style>
+</head>
+
+<body class="mainbody">
+	<div>
+		<table border="1" cellspacing="0" width="95%">
+			<thead>
+				<tr text-align="center" colspan="3">用户信息表</tr>
+			</thead>
+			<tr>
+				<td width="5%">序号</td>
+				<td width="15%">用户名</td>
+				<td width="15%">电话</td>
+				<td width="15%">qq</td>
+				<td width="15%">邮箱</td>
+				<td width="5%"> 状态</td>
+				<td width="25%">操作</td>
+			</tr>
+			<c:choose>
+				<c:when test="${not empty pb.beanList }">
+					<c:forEach items="${pb.beanList }" var="user" varStatus ="status">
+						<tr>
+							<td width="5%">${status.index+1 }</td>
+							<td width="20%">${user.username }</td>
+							<td width="20%">${user.s_phone }</td>
+							<td width="20%">${user.s_qq }</td>
+							<td width="20%">${user.email }</td>
+							<c:choose>
+								<c:when test="${user.status=='0'}">
+								<td width="10%">未激活</td>
+								</c:when>
+								<c:otherwise>
+									<td width="10%">已激活</td>
+								</c:otherwise>
+							</c:choose>
+							<td width="5%">
+							<%--<a href="<c:url value='/AdminServlet?method=updateByUid&uid=${user.uid }'/>">编辑</a> 
+							--%><a href="<c:url value='/AdminServlet?method=deleteByName&uname=${user.username }'/>">删除</a></td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+				内容为空
+			</c:otherwise>
+			</c:choose>
+		</table>
+	</div>
+		<div style="float:left; width: 100%; text-align: center;">
+					<hr />
+					<br />
+					
+		</div>
+</body>
+</html>

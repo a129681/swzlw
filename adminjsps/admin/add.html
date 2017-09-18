@@ -1,0 +1,110 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css"
+	href="css/find_1.css" />
+<link rel="stylesheet" type="text/css"
+	href="/jquery/jquery.datepick.css" />
+<script type="text/javascript"
+	src="/jquery/jquery-1.5.1.js"></script>
+<script type="text/javascript"
+	src="/jquery/jquery.datepick.js"></script>
+<script type="text/javascript"
+	src="/jquery/jquery.datepick-zh-CN.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#g_date").datepick({dateFormat:"yy-mm-dd"});
+		$("#btn1").click(function() {
+			var g_name = $("#g_name").val();
+			if(!g_name) {
+				alert("物品名称不能为空！");
+				return false;
+			}
+			var s_name = $("#s_name").val();
+			if(!s_name) {
+				alert("失主姓名不能为空！");
+				return false;
+			}
+			var s_phone = $("#s_phone").val();
+			var s_qq = $("#s_qq").val();
+			if(!s_name|| !s_qq) {
+				alert("失主电话和qq不能为空！");
+				return false;
+			}
+			var g_desc = $("#g_desc").val();
+			if(!g_desc) {
+				alert("物品描述不能为空！");
+				return false;
+			}
+			$("#form1").submit();
+		});
+	});
+</script>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body class="abus">
+	<div id="aform" >
+		<div id="tform">
+			<form id="form1" action="/AddGoodsServlet1"
+				enctype="multipart/form-data" method="post">
+				<table style="width:600px;">
+					<tr>
+						<td class="t1" maxlength="10">物品名称</td>
+						<td><input type="text" id="g_name" name="g_name" /></td>
+					</tr>
+					<tr>
+						<td class="t1">上传图片</td>
+						<td><input type="file" id="g_image" name="g_image" style="width:200px;background:none;"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="t1">物品种类</td>
+						<td><select name="g_type" id="g_type">
+								<option value="" selected="selected">--请选择--</option>
+								<option value="证件">证件</option>
+								<option value="银行卡折">银行卡折</option>
+								<option value="数码产品">数码产品</option>
+								<option value="衣物鞋帽">衣物鞋帽</option>
+								<option value="其他">其他</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td class="t1">丢失地点</td>
+						<td><input type="text" id="g_address" name="g_address" maxlength="30"/></td>
+					</tr>
+					<tr>
+						<td class="t1">丢失日期</td>
+						<td><input type="text" id="g_date" name="g_date"  maxlength="30"/></td>
+					</tr>
+					<tr>
+						<td class="t1">联系人</td>
+						<td><input type="text" id="s_name" name="s_name" maxlength="14"/></td>
+					</tr>
+					<tr>
+						<td class="t1">联系手机</td>
+						<td><input type="text" id="s_phone" name="s_phone" maxlength="14"/></td>
+					</tr>
+					<tr>
+						<td class="t1">QQ</td>
+						<td><input type="text" id="s_qq" name="s_qq" maxlength="14"/></td>
+					</tr>
+					<tr>
+						<td class="t1">物品描述</td>
+						<td><textarea id="g_desc" maxlength="50" name="g_desc" cols="40" rows="6">请输入50字以内的文字描述</textarea></td>
+					</tr>
+					<tr style="margin-top:20px;">
+						<td style="width:580px;height:30px;display:block; margin:0 auto;">
+						<span> <input type="submit" value="上传" id="btn1" style="background:#CCC;"/> </span></td>
+					</tr>
+				</table>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

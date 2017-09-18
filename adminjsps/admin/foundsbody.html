@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> 
+<html>
+<head>
+<title>body.jsp</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<link href="css/css1.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="css/page1.css">
+</head>
+
+<body style="margin: 0px;" class="abus">
+	<div id="inform">
+		<div id="inform_1">
+		<br/>
+			<div >
+				<div class="flcx_head" >
+				</div>
+			</div>
+			<hr />
+			<div id="inform">
+				<ul>
+					<c:choose >
+						<c:when test="${not empty pb.beanList }">
+							<c:forEach items="${pb.beanList }" var="founds">
+								<li>
+									<div class="inner">
+										<a class="gid"
+											href=/AdminServlet?method=loadByFid&fid=${founds.fid }"><img
+											src=${founds.f_image }" border="0" onerror="this.src='<c:url value='image/moren.jpg';"/>
+										</a>
+
+									</div>
+									<table class="ggbg">
+								<tbody>
+									<tr>
+										<td>物品名称</td>
+										<td><span>${founds.f_name}</span></td>
+									</tr>
+									<tr>
+										<td>物品状态</td>
+										<c:choose>
+											<c:when test="${founds.status=='1'}">
+												<td><span>已认领</span></td>
+											</c:when>
+											<c:otherwise>
+												<td><span>未认领</span></td>
+											</c:otherwise>
+										</c:choose>
+									</tr>
+									<tr>
+										<td>拾取时间</td>
+										<td><span>${founds.f_date}</span></td>
+									</tr>
+									<tr>
+										<td>拾取地点</td>
+										<td><span>${founds.f_address}</span></td>
+									</tr>
+									<tr>
+										<td valign="top">物品描述</td>
+										<td><span style="width:500px;height:50px;font-size:14px;">${founds.f_desc}</span></td>
+									</tr>
+									
+								</tbody>
+							</table>
+								</li>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							内容为空
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			<div style="float:left; width: 100%; text-align: center;">
+				<hr />
+				<br />
+				
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
